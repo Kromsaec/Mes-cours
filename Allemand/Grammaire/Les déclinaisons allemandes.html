@@ -1,0 +1,454 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les déclinaisons allemandes</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --bg-card: #fffdf9;
+    --text: #272320;
+    --text-soft: #6b6257;
+    --accent: #b5492f;
+    --accent-soft: #f0ddd3;
+    --border: #e3dac8;
+    --shadow: 0 1px 2px rgba(60, 45, 20, 0.04), 0 4px 14px rgba(60, 45, 20, 0.06);
+    --nom: #3f7a5c; --nom-bg: #e4f0e7;
+    --akk: #b5492f; --akk-bg: #f6ded3;
+    --dat: #2f6fa8; --dat-bg: #dfeaf5;
+    --gen: #ab7e1c; --gen-bg: #f7ecd4;
+    --tab-bg: #e9e3d4;
+    font-family: "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #171512; --bg-card: #221e1a; --text: #f0e9dd; --text-soft: #b4a996;
+      --accent: #e8926f; --accent-soft: #3c2b22; --border: #392f24;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.3);
+      --nom: #85c29e; --nom-bg: #1f2c23;
+      --akk: #e8926f; --akk-bg: #3a2620;
+      --dat: #86b6e0; --dat-bg: #1e2c38;
+      --gen: #e0bb6a; --gen-bg: #342918;
+      --tab-bg: #1e1a16;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171512; --bg-card: #221e1a; --text: #f0e9dd; --text-soft: #b4a996;
+    --accent: #e8926f; --accent-soft: #3c2b22; --border: #392f24;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 6px 18px rgba(0, 0, 0, 0.3);
+    --nom: #85c29e; --nom-bg: #1f2c23;
+    --akk: #e8926f; --akk-bg: #3a2620;
+    --dat: #86b6e0; --dat-bg: #1e2c38;
+    --gen: #e0bb6a; --gen-bg: #342918;
+    --tab-bg: #1e1a16;
+  }
+
+  html { box-sizing: border-box; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 820px; margin: 0 auto; padding: 2.2rem 1.3rem 4rem; }
+
+  h1 { font-size: 1.75rem; margin: 0 0 0.3rem; color: var(--accent); letter-spacing: -0.01em; }
+  .subtitle { color: var(--text-soft); font-size: 1rem; margin: 0 0 1.6rem; }
+
+  h2 { font-size: 1.2rem; margin: 1.8rem 0 0.8rem; padding-bottom: 0.3rem; border-bottom: 2px solid var(--border); }
+  h3 { font-size: 1.02rem; margin: 1.3rem 0 0.5rem; color: var(--accent); }
+  p { margin: 0.6rem 0; }
+
+  .callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 0.95rem 1.15rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow);
+  }
+  .key { font-weight: bold; color: var(--accent); }
+
+  /* Tabs */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.5rem 0 0;
+    background: var(--tab-bg);
+    border-radius: 999px;
+    padding: 0.3rem;
+  }
+  .tab-btn {
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: transparent;
+    color: var(--text-soft);
+    border: none;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    background: var(--bg-card);
+    color: var(--accent);
+    font-weight: bold;
+    box-shadow: var(--shadow);
+  }
+  .tab-panel { display: none; padding-top: 1.6rem; }
+  .tab-panel.active { display: block; }
+
+  .case-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
+  }
+  .badge-nom { background: var(--nom-bg); color: var(--nom); }
+  .badge-akk { background: var(--akk-bg); color: var(--akk); }
+  .badge-dat { background: var(--dat-bg); color: var(--dat); }
+  .badge-gen { background: var(--gen-bg); color: var(--gen); }
+
+  .table-scroll { overflow-x: auto; margin: 0.8rem 0 1.3rem; border-radius: 10px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; background: var(--bg-card); font-size: 0.95rem; }
+  caption { text-align: left; font-weight: bold; padding: 0.6rem 0.8rem; color: var(--text-soft); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  th, td { padding: 0.55rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+  thead th { background: var(--accent-soft); font-weight: bold; }
+  tbody tr:last-child td { border-bottom: none; }
+  .row-nom td:first-child { color: var(--nom); font-weight: bold; }
+  .row-akk td:first-child { color: var(--akk); font-weight: bold; }
+  .row-dat td:first-child { color: var(--dat); font-weight: bold; }
+  .row-gen td:first-child { color: var(--gen); font-weight: bold; }
+
+  .example-list { list-style: none; margin: 0.8rem 0; padding: 0; display: grid; gap: 0.55rem; }
+  .example-list li { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.65rem 0.95rem; box-shadow: var(--shadow); }
+  .example-list .fr { color: var(--text-soft); font-size: 0.85rem; margin-top: 0.15rem; }
+  .hl { font-weight: bold; }
+  .hl-nom { color: var(--nom); }
+  .hl-akk { color: var(--akk); }
+  .hl-dat { color: var(--dat); }
+  .hl-gen { color: var(--gen); }
+
+  .trigger-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+  @media (min-width: 560px) {
+    .trigger-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .trigger-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.95rem;
+    box-shadow: var(--shadow);
+  }
+  .trigger-card .t-title { font-weight: bold; margin-bottom: 0.3rem; }
+
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 0.8rem 0; }
+  .steps li { counter-increment: step; position: relative; padding: 0.35rem 0 0.8rem 2.3rem; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0.25rem;
+    width: 1.6rem; height: 1.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.82rem; font-weight: bold;
+  }
+
+  .warn-list { padding-left: 1.2rem; }
+  .warn-list li { margin-bottom: 0.5rem; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.4rem; }
+    .wrap { padding: 1.6rem 1rem 3rem; }
+    .tab-btn { font-size: 0.82rem; padding: 0.5rem 0.7rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Les déclinaisons allemandes</h1>
+  <p class="subtitle">Comment et pourquoi <em>der, die, das</em> changent de forme selon le cas grammatical.</p>
+
+  <div class="callout">
+    <p><span class="key">L'idée de base :</span> en français, l'article ne change presque jamais (« le chien » reste « le chien », sujet ou complément). En allemand, l'article <strong>change de forme</strong> selon le rôle du nom dans la phrase : c'est ça, la déclinaison. Ces rôles s'appellent les <strong>4 cas</strong> : Nominatif, Accusatif, Datif, Génitif.</p>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" data-tab="overview" role="tab">Vue d'ensemble</button>
+    <button class="tab-btn" data-tab="nom" role="tab">Nominativ</button>
+    <button class="tab-btn" data-tab="akk" role="tab">Akkusativ</button>
+    <button class="tab-btn" data-tab="dat" role="tab">Dativ</button>
+    <button class="tab-btn" data-tab="gen" role="tab">Genitiv</button>
+  </div>
+
+  <!-- VUE D'ENSEMBLE -->
+  <div class="tab-panel active" id="panel-overview">
+
+    <h2>Les 4 cas, en une phrase chacun</h2>
+    <div class="trigger-grid">
+      <div class="trigger-card"><span class="hl hl-nom">Nominativ</span> — qui fait l'action ? Le <strong>sujet</strong> de la phrase.</div>
+      <div class="trigger-card"><span class="hl hl-akk">Akkusativ</span> — sur quoi porte l'action ? Le <strong>complément direct</strong>.</div>
+      <div class="trigger-card"><span class="hl hl-dat">Dativ</span> — à qui, pour qui ? Le <strong>complément indirect</strong>, et après certaines prépositions.</div>
+      <div class="trigger-card"><span class="hl hl-gen">Genitiv</span> — à qui ça appartient ? La <strong>possession</strong> (« de... »).</div>
+    </div>
+
+    <h2>Le tableau complet des articles définis</h2>
+    <div class="table-scroll">
+      <table>
+        <caption>der / die / das — articles définis</caption>
+        <thead><tr><th></th><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr></thead>
+        <tbody>
+          <tr class="row-nom"><td>Nominativ</td><td>der</td><td>die</td><td>das</td><td>die</td></tr>
+          <tr class="row-akk"><td>Akkusativ</td><td>den</td><td>die</td><td>das</td><td>die</td></tr>
+          <tr class="row-dat"><td>Dativ</td><td>dem</td><td>der</td><td>dem</td><td>den</td></tr>
+          <tr class="row-gen"><td>Genitiv</td><td>des</td><td>der</td><td>des</td><td>der</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Le tableau des articles indéfinis (ein) et de kein / mein...</h2>
+    <div class="table-scroll">
+      <table>
+        <caption>ein / kein / mein — articles indéfinis et possessifs</caption>
+        <thead><tr><th></th><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr></thead>
+        <tbody>
+          <tr class="row-nom"><td>Nominativ</td><td>ein</td><td>eine</td><td>ein</td><td>keine / meine</td></tr>
+          <tr class="row-akk"><td>Akkusativ</td><td>einen</td><td>eine</td><td>ein</td><td>keine / meine</td></tr>
+          <tr class="row-dat"><td>Dativ</td><td>einem</td><td>einer</td><td>einem</td><td>keinen / meinen</td></tr>
+          <tr class="row-gen"><td>Genitiv</td><td>eines</td><td>einer</td><td>eines</td><td>keiner / meiner</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Le groupe <em>ein</em> n'a pas de pluriel propre (comme en français, on ne dit pas « un » au pluriel) : au pluriel on utilise <em>kein-</em> (pas de), <em>mein-</em> (mon/ma/mes), <em>dein-, sein-, ihr-, unser-, euer-, Ihr-</em>, qui suivent tous exactement le même schéma de terminaisons que <em>ein</em>.</p>
+
+    <div class="callout">
+      <p><span class="key">Méthode générale, dans cet ordre :</span></p>
+      <ol class="steps">
+        <li>Trouver le <strong>genre</strong> du nom (masculin, féminin, neutre) et le <strong>nombre</strong> (singulier/pluriel) — à apprendre par cœur avec chaque nom.</li>
+        <li>Identifier le <strong>rôle</strong> du nom dans la phrase : sujet, complément direct, complément indirect, possession, ou préposition imposant un cas fixe.</li>
+        <li>En déduire le <strong>cas</strong>, puis choisir la forme de l'article dans le tableau.</li>
+      </ol>
+    </div>
+
+    <p>Les onglets suivants détaillent chaque cas séparément, avec ses déclencheurs (verbes, prépositions) et des exemples.</p>
+  </div>
+
+  <!-- NOMINATIF -->
+  <div class="tab-panel" id="panel-nom">
+    <span class="case-badge badge-nom">Nominativ</span>
+    <h2>Le sujet de la phrase</h2>
+    <p>Le nominatif répond à la question <strong>wer? / was?</strong> (qui ? / quoi ?). C'est la forme « de base » de l'article, celle du dictionnaire.</p>
+
+    <div class="table-scroll">
+      <table>
+        <caption>Nominativ</caption>
+        <thead><tr><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr></thead>
+        <tbody><tr class="row-nom"><td>der</td><td>die</td><td>das</td><td>die</td></tr></tbody>
+      </table>
+    </div>
+
+    <ul class="example-list">
+      <li><span class="hl hl-nom">Der Hund</span> bellt.
+        <div class="fr">Le chien aboie. (c'est le chien qui fait l'action)</div>
+      </li>
+      <li><span class="hl hl-nom">Die Frau</span> arbeitet hier.
+        <div class="fr">La femme travaille ici.</div>
+      </li>
+      <li>Das ist <span class="hl hl-nom">ein großes Problem</span>.
+        <div class="fr">C'est un grand problème. (attribut du sujet avec <em>sein</em>, aussi au nominatif)</div>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <p><span class="key">Piège :</span> après les verbes <em>sein</em> (être), <em>werden</em> (devenir) et <em>bleiben</em> (rester), l'attribut reste au <strong>nominatif</strong>, même s'il vient après le verbe : <em>Er ist <span class="hl hl-nom">ein guter Lehrer</span>.</em> (Il est un bon professeur.)</p>
+    </div>
+  </div>
+
+  <!-- ACCUSATIF -->
+  <div class="tab-panel" id="panel-akk">
+    <span class="case-badge badge-akk">Akkusativ</span>
+    <h2>Le complément d'objet direct</h2>
+    <p>L'accusatif répond à la question <strong>wen? / was?</strong> (qui ? / quoi ?, mais comme complément). Seul le <strong>masculin singulier</strong> change par rapport au nominatif (<em>der → den</em>) ; le féminin, le neutre et le pluriel restent identiques.</p>
+
+    <div class="table-scroll">
+      <table>
+        <caption>Akkusativ</caption>
+        <thead><tr><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr></thead>
+        <tbody><tr class="row-akk"><td>den</td><td>die</td><td>das</td><td>die</td></tr></tbody>
+      </table>
+    </div>
+
+    <ul class="example-list">
+      <li>Ich sehe <span class="hl hl-akk">den Hund</span>.
+        <div class="fr">Je vois le chien. (« le chien » reçoit l'action de voir)</div>
+      </li>
+      <li>Er kauft <span class="hl hl-akk">das Auto</span>.
+        <div class="fr">Il achète la voiture.</div>
+      </li>
+    </ul>
+
+    <h3>Les déclencheurs de l'accusatif</h3>
+    <div class="trigger-grid">
+      <div class="trigger-card">
+        <div class="t-title">Prépositions toujours accusatif</div>
+        <em>für, durch, gegen, ohne, um</em>
+      </div>
+      <div class="trigger-card">
+        <div class="t-title">Verbes + préposition fixe</div>
+        <em>warten auf, sich freuen auf, denken an...</em>
+      </div>
+      <div class="trigger-card">
+        <div class="t-title">Mouvement (wohin?)</div>
+        Avec les prépositions mixtes <em>in, auf, an, über...</em> quand il y a déplacement : <em>Ich lege das Buch auf <span class="hl hl-akk">den</span> Tisch.</em>
+      </div>
+      <div class="trigger-card">
+        <div class="t-title">es gibt</div>
+        Toujours suivi de l'accusatif : <em>Es gibt <span class="hl hl-akk">einen</span> Park.</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATIF -->
+  <div class="tab-panel" id="panel-dat">
+    <span class="case-badge badge-dat">Dativ</span>
+    <h2>Le complément d'objet indirect</h2>
+    <p>Le datif répond à la question <strong>wem?</strong> (à qui ?). C'est le cas de la personne qui reçoit, bénéficie, ou qui est simplement « là » dans une position.</p>
+
+    <div class="table-scroll">
+      <table>
+        <caption>Dativ</caption>
+        <thead><tr><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr></thead>
+        <tbody><tr class="row-dat"><td>dem</td><td>der</td><td>dem</td><td>den</td></tr></tbody>
+      </table>
+    </div>
+
+    <ul class="example-list">
+      <li>Ich gebe <span class="hl hl-dat">der Frau</span> das Buch.
+        <div class="fr">Je donne le livre à la femme. (<em>der Frau</em> = qui reçoit ; <em>das Buch</em> = ce qui est donné, accusatif)</div>
+      </li>
+      <li>Er hilft <span class="hl hl-dat">den Kindern</span>.
+        <div class="fr">Il aide les enfants. (datif pluriel : <em>-n</em> ajouté au nom)</div>
+      </li>
+    </ul>
+
+    <h3>Les déclencheurs du datif</h3>
+    <div class="trigger-grid">
+      <div class="trigger-card">
+        <div class="t-title">Prépositions toujours datif</div>
+        <em>mit, bei, nach, von, zu, aus, seit, gegenüber</em>
+      </div>
+      <div class="trigger-card">
+        <div class="t-title">Verbes toujours datif</div>
+        <em>helfen, danken, gefallen, gehören, antworten, folgen, gratulieren</em>
+      </div>
+      <div class="trigger-card">
+        <div class="t-title">Position (wo?)</div>
+        Avec les prépositions mixtes, sans mouvement : <em>Das Buch liegt auf <span class="hl hl-dat">dem</span> Tisch.</em>
+      </div>
+      <div class="trigger-card">
+        <div class="t-title">Verbes à double complément</div>
+        <em>geben, zeigen, schicken, erklären</em> : personne au datif + chose à l'accusatif.
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><span class="key">Datif pluriel :</span> c'est le seul cas où le <strong>nom lui-même</strong> change, pas seulement l'article : on ajoute un <strong>-n</strong> final s'il n'y en a pas déjà un. <em>die Kinder → den Kindern</em>, <em>die Eltern → den Eltern</em> (déjà en <em>-n</em>, rien à ajouter).</p>
+    </div>
+  </div>
+
+  <!-- GENITIF -->
+  <div class="tab-panel" id="panel-gen">
+    <span class="case-badge badge-gen">Genitiv</span>
+    <h2>La possession, « de... »</h2>
+    <p>Le génitif répond à la question <strong>wessen?</strong> (de qui ? à qui est-ce ?). C'est le cas le plus rare à l'oral — souvent remplacé par <em>von</em> + datif dans la langue courante — mais il reste utile à reconnaître et à utiliser à l'écrit ou en contexte plus soigné.</p>
+
+    <div class="table-scroll">
+      <table>
+        <caption>Genitiv</caption>
+        <thead><tr><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr></thead>
+        <tbody><tr class="row-gen"><td>des</td><td>der</td><td>des</td><td>der</td></tr></tbody>
+      </table>
+    </div>
+
+    <ul class="example-list">
+      <li>Das Auto <span class="hl hl-gen">des Mannes</span> ist neu.
+        <div class="fr">La voiture de l'homme est neuve. (<em>Mann</em> masculin : <em>des</em> + <strong>-es</strong> sur le nom)</div>
+      </li>
+      <li>Die Farbe <span class="hl hl-gen">des Autos</span> gefällt mir.
+        <div class="fr">La couleur de la voiture me plaît. (neutre : <em>des</em> + <strong>-s</strong>)</div>
+      </li>
+      <li>Das Thema <span class="hl hl-gen">der Vorlesung</span> ist interessant.
+        <div class="fr">Le thème du cours est intéressant. (féminin : pas de <em>-s</em> sur le nom)</div>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <p><span class="key">Règle du -s/-es :</span> au masculin et au neutre singulier, le <strong>nom</strong> prend lui aussi une terminaison : <strong>-s</strong> en général (<em>des Autos</em>), ou <strong>-es</strong> pour les noms courts/en une syllabe ou finissant par une sifflante (<em>des Mannes, des Hauses</em>). Le féminin et le pluriel ne changent jamais le nom.</p>
+    </div>
+
+    <h3>L'alternative courante : <em>von</em> + datif</h3>
+    <p>À l'oral, on remplace très souvent le génitif par <strong>von</strong> + datif, surtout avec des noms propres ou dans un registre familier :</p>
+    <ul class="example-list">
+      <li><span class="hl hl-gen">Das Thema des Videos</span> <span style="color:var(--text-soft);">(soutenu)</span> ≈ <span class="hl hl-dat">das Thema von dem Video</span> <span style="color:var(--text-soft);">(courant, → <em>vom Video</em>)</span>
+        <div class="fr">Le thème de la vidéo.</div>
+      </li>
+    </ul>
+
+    <h3>Prépositions toujours au génitif</h3>
+    <p><em>wegen</em> (à cause de), <em>während</em> (pendant), <em>trotz</em> (malgré), <em>außerhalb</em> (en dehors de) — dans la langue courante, <em>wegen</em> et <em>trotz</em> s'entendent aussi parfois avec le datif, mais le génitif reste la forme correcte à l'écrit.</p>
+    <ul class="example-list">
+      <li><em>Wegen <span class="hl hl-gen">des Wetters</span></em> bleiben wir zu Hause.
+        <div class="fr">À cause du temps, nous restons à la maison.</div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  (function() {
+    var buttons = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('.tab-panel');
+    buttons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        buttons.forEach(function(b) { b.classList.remove('active'); });
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
+
+</body></html>
