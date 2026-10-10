@@ -1,0 +1,360 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les propositions relatives</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --bg-card: #ffffff;
+    --text: #2b2621;
+    --text-soft: #5c5347;
+    --accent: #a63d2f;
+    --accent-soft: #f1ded9;
+    --border: #e4dcd2;
+    --nom: #4f6d5a; --nom-bg: #e9f0eb;
+    --akk: #a63d2f; --akk-bg: #f7e3df;
+    --dat: #3d6b96; --dat-bg: #e3edf5;
+    --gen: #a97c1f; --gen-bg: #f8edd7;
+    font-family: "Georgia", "Iowan Old Style", "Times New Roman", serif;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --bg: #1b1815; --bg-card: #24201c; --text: #eee7dd; --text-soft: #b9ada0;
+      --accent: #e3846c; --accent-soft: #3a2a26; --border: #3a332c;
+      --nom: #8fb89e; --nom-bg: #23302a;
+      --akk: #e3846c; --akk-bg: #3a2622;
+      --dat: #87b3d9; --dat-bg: #22303c;
+      --gen: #d9b25f; --gen-bg: #362c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1b1815; --bg-card: #24201c; --text: #eee7dd; --text-soft: #b9ada0;
+    --accent: #e3846c; --accent-soft: #3a2a26; --border: #3a332c;
+    --nom: #8fb89e; --nom-bg: #23302a;
+    --akk: #e3846c; --akk-bg: #3a2622;
+    --dat: #87b3d9; --dat-bg: #22303c;
+    --gen: #d9b25f; --gen-bg: #362c1c;
+  }
+
+  html { box-sizing: border-box; scroll-padding-top: env(safe-area-inset-top, 0px); }
+  *, *::before, *::after { box-sizing: inherit; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 800px; margin: 0 auto; padding: 2.2rem 1.3rem 4rem; }
+
+  h1 { font-size: 1.75rem; margin: 0 0 0.3rem; color: var(--accent); letter-spacing: -0.01em; }
+  .subtitle { color: var(--text-soft); font-size: 1rem; margin: 0 0 1.8rem; }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 2.4rem 0 0.9rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 2px solid var(--border);
+  }
+  h3 { font-size: 1.03rem; margin: 1.4rem 0 0.6rem; color: var(--accent); }
+
+  p { margin: 0.6rem 0; }
+
+  .callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 0.9rem 1.1rem;
+    margin: 1rem 0;
+  }
+
+  .key { font-weight: bold; color: var(--accent); }
+
+  /* Sentence breakdown */
+  .sentence-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0 1.4rem;
+  }
+  .sentence-main { font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .sentence-fr { color: var(--text-soft); font-size: 0.9rem; font-style: italic; }
+  .tag-nom { color: var(--nom); font-weight: bold; }
+  .tag-akk { color: var(--akk); font-weight: bold; }
+  .tag-dat { color: var(--dat); font-weight: bold; }
+  .tag-gen { color: var(--gen); font-weight: bold; }
+  .verb-end {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  .legend-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.9rem 0 1.3rem; }
+  .legend-row span {
+    font-size: 0.82rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+  }
+  .legend-nom { background: var(--nom-bg); color: var(--nom); }
+  .legend-akk { background: var(--akk-bg); color: var(--akk); }
+  .legend-dat { background: var(--dat-bg); color: var(--dat); }
+  .legend-gen { background: var(--gen-bg); color: var(--gen); }
+
+  /* Declension table */
+  .table-scroll { overflow-x: auto; margin: 0.8rem 0 1.3rem; border-radius: 8px; border: 1px solid var(--border); }
+  table { border-collapse: collapse; width: 100%; min-width: 480px; background: var(--bg-card); font-size: 0.95rem; }
+  caption { text-align: left; font-weight: bold; padding: 0.6rem 0.8rem; color: var(--text-soft); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  th, td { padding: 0.55rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+  thead th { background: var(--accent-soft); font-weight: bold; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.nom-cell { color: var(--nom); font-weight: bold; }
+  td.akk-cell { color: var(--akk); font-weight: bold; }
+  td.dat-cell { color: var(--dat); font-weight: bold; }
+  td.gen-cell { color: var(--gen); font-weight: bold; }
+
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 0.8rem 0; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0.35rem 0 0.9rem 2.3rem;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0.3rem;
+    width: 1.6rem; height: 1.6rem;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: bold;
+  }
+
+  .example-list { list-style: none; margin: 0.8rem 0; padding: 0; display: grid; gap: 0.55rem; }
+  .example-list li {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+  }
+  .example-list .fr { color: var(--text-soft); font-size: 0.85rem; margin-top: 0.15rem; }
+
+  .fix-box {
+    background: var(--accent-soft);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 1.2rem 0;
+  }
+  .fix-wrong { color: var(--akk); text-decoration: line-through; }
+  .fix-right { color: var(--nom); font-weight: bold; }
+
+  .warn-list { padding-left: 1.2rem; }
+  .warn-list li { margin-bottom: 0.5rem; }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-soft);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 1.4rem; }
+    .wrap { padding: 1.6rem 1rem 3rem; }
+    .sentence-main { font-size: 1.02rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Les propositions relatives (Relativsätze)</h1>
+  <p class="subtitle">Comment dire « le chien QUI... », « la femme QUE... », « l'homme DONT... » en allemand.</p>
+
+  <div class="callout">
+    <p><span class="key">L'idée de base :</span> une proposition relative ajoute une information sur un nom déjà cité, à l'aide d'un pronom relatif (<em>der, die, das...</em>). En allemand, ce pronom <strong>se décline</strong> : il change de forme selon le genre et le nombre du nom qu'il reprend, <strong>et</strong> selon son propre rôle dans la proposition relative.</p>
+  </div>
+
+  <div class="sentence-box">
+    <div class="sentence-main">Der Hund, <span class="tag-nom">der</span> im Park war, war schön.</div>
+    <div class="sentence-fr">Le chien qui était dans le parc était beau.</div>
+  </div>
+
+  <h2>1. Le pronom relatif : deux informations à la fois</h2>
+
+  <p>Le pronom relatif porte <strong>deux renseignements séparés</strong>, qu'il faut déterminer l'un après l'autre :</p>
+
+  <ol class="steps">
+    <li><span class="key">Le genre et le nombre</span> viennent toujours du nom repris (l'antécédent), <strong>jamais de la proposition relative</strong>. <em>Der Hund</em> est masculin singulier → le pronom commence sur une base masculine singulier.</li>
+    <li><span class="key">Le cas</span> (nominatif, accusatif, datif, génitif) dépend uniquement du <strong>rôle du pronom dans sa propre proposition</strong> — sujet, complément direct, complément indirect, ou possession.</li>
+  </ol>
+
+  <div class="callout">
+    <p>Ces deux informations sont <strong>indépendantes</strong>. Le genre ne change jamais une fois fixé par l'antécédent ; le cas, lui, dépend entièrement de ce que fait le pronom dans la relative, même si cela n'a aucun rapport avec le rôle du nom dans la phrase principale.</p>
+  </div>
+
+  <h2>2. Le tableau des pronoms relatifs</h2>
+
+  <div class="legend-row">
+    <span class="legend-nom">Nominatif — sujet</span>
+    <span class="legend-akk">Accusatif — COD</span>
+    <span class="legend-dat">Datif — COI</span>
+    <span class="legend-gen">Génitif — possession</span>
+  </div>
+
+  <div class="table-scroll">
+    <table>
+      <caption>Pronoms relatifs</caption>
+      <thead>
+        <tr><th></th><th>Masculin</th><th>Féminin</th><th>Neutre</th><th>Pluriel</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nominatif</td><td class="nom-cell">der</td><td class="nom-cell">die</td><td class="nom-cell">das</td><td class="nom-cell">die</td></tr>
+        <tr><td>Accusatif</td><td class="akk-cell">den</td><td class="akk-cell">die</td><td class="akk-cell">das</td><td class="akk-cell">die</td></tr>
+        <tr><td>Datif</td><td class="dat-cell">dem</td><td class="dat-cell">der</td><td class="dat-cell">dem</td><td class="dat-cell">denen</td></tr>
+        <tr><td>Génitif</td><td class="gen-cell">dessen</td><td class="gen-cell">deren</td><td class="gen-cell">dessen</td><td class="gen-cell">deren</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><span class="key">Bonne nouvelle :</span> ce tableau est presque identique à celui des articles définis (<em>der, die, das...</em>) que vous connaissez déjà bien. Seules deux cases changent : le datif pluriel <strong>denen</strong> (au lieu de <em>den</em>) et le génitif <strong>dessen/deren</strong> (au lieu de <em>des/der</em>).</p>
+
+  <h2>3. L'ordre des mots : le verbe à la fin</h2>
+
+  <p>Comme toutes les subordonnées déjà vues (<em>weil, dass, wenn, obwohl...</em>), la proposition relative envoie son verbe conjugué <strong>à la fin</strong>, et elle est toujours encadrée par des <strong>virgules</strong>.</p>
+
+  <div class="sentence-box">
+    <div class="sentence-main">Der Mann, <span class="tag-nom">der</span> dort steht<span class="verb-end"></span>, ist mein Lehrer.</div>
+    <div class="sentence-fr">L'homme qui se tient là-bas est mon professeur.</div>
+  </div>
+
+  <h2>4. Exemples détaillés, cas par cas</h2>
+
+  <h3>Nominatif — le pronom est sujet de la relative</h3>
+  <ul class="example-list">
+    <li>Der Hund, <span class="tag-nom">der</span> bellt, gehört meinem Nachbarn.
+      <div class="fr">Le chien qui aboie appartient à mon voisin. (<em>der</em> = sujet de <em>bellt</em>)</div>
+    </li>
+    <li>Die Frau, <span class="tag-nom">die</span> dort arbeitet, heißt Anna.
+      <div class="fr">La femme qui travaille là-bas s'appelle Anna.</div>
+    </li>
+  </ul>
+
+  <h3>Accusatif — le pronom est complément d'objet direct</h3>
+  <ul class="example-list">
+    <li>Der Hund, <span class="tag-akk">den</span> ich sehe, ist braun.
+      <div class="fr">Le chien que je vois est marron. (<em>den</em> = COD de <em>sehe</em> : « je vois le chien »)</div>
+    </li>
+    <li>Das Buch, <span class="tag-akk">das</span> ich lese, ist spannend.
+      <div class="fr">Le livre que je lis est captivant.</div>
+    </li>
+  </ul>
+
+  <div class="callout">
+    <p><span class="key">Remarquez :</span> <em>der Hund</em> (masculin) donne tantôt <strong>der</strong> (nominatif, phrase du dessus), tantôt <strong>den</strong> (accusatif, ici) — le genre ne change pas, seul le cas change, selon ce que fait le chien dans chaque relative : il aboie (sujet) / je le vois (complément).</p>
+  </div>
+
+  <h3>Datif — le pronom est complément d'objet indirect</h3>
+  <ul class="example-list">
+    <li>Der Mann, <span class="tag-dat">dem</span> ich das Buch gebe, ist mein Bruder.
+      <div class="fr">L'homme à qui je donne le livre est mon frère. (<em>dem</em> = datif de <em>geben</em>)</div>
+    </li>
+    <li>Die Kinder, <span class="tag-dat">denen</span> wir helfen, sind glücklich.
+      <div class="fr">Les enfants que nous aidons sont heureux. (<em>helfen</em> se construit toujours avec le datif)</div>
+    </li>
+  </ul>
+
+  <h3>Génitif — le pronom exprime une possession (« dont »)</h3>
+  <ul class="example-list">
+    <li>Der Mann, <span class="tag-gen">dessen</span> Auto rot ist, ist mein Nachbar.
+      <div class="fr">L'homme dont la voiture est rouge est mon voisin. (littéralement : « l'homme, sa voiture est rouge »)</div>
+    </li>
+    <li>Die Frau, <span class="tag-gen">deren</span> Sohn Lehrer ist, wohnt hier.
+      <div class="fr">La femme dont le fils est professeur habite ici.</div>
+    </li>
+  </ul>
+
+  <div class="callout">
+    <p><span class="key">Piège du génitif :</span> <em>dessen/deren</em> s'accorde sur le <strong>possesseur</strong> (l'antécédent), pas sur l'objet possédé. <em>Der Mann, dessen Auto...</em> — <em>dessen</em> est masculin car <em>der Mann</em> est masculin, même si <em>Auto</em> est neutre. Et après <em>dessen/deren</em>, le nom qui suit <strong>ne prend pas d'article</strong> (pas de <em>das</em> devant <em>Auto</em>).</p>
+  </div>
+
+  <h2>5. Le pronom relatif avec une préposition</h2>
+
+  <p>Si le verbe de la relative demande une préposition (<em>warten auf, sprechen mit...</em>), la préposition se place <strong>juste avant</strong> le pronom relatif, et c'est elle qui impose le cas.</p>
+
+  <ul class="example-list">
+    <li>Der Bus, <strong>auf</strong> <span class="tag-akk">den</span> ich warte, kommt spät.
+      <div class="fr">Le bus que j'attends arrive en retard. (<em>warten auf</em> + accusatif)</div>
+    </li>
+    <li>Der Kollege, <strong>mit</strong> <span class="tag-dat">dem</span> ich arbeite, ist nett.
+      <div class="fr">Le collègue avec qui je travaille est sympa. (<em>mit</em> + toujours datif)</div>
+    </li>
+    <li>Das Zelt, <strong>in</strong> <span class="tag-dat">dem</span> wir schlafen, ist groß.
+      <div class="fr">La tente dans laquelle nous dormons est grande. (position → datif)</div>
+    </li>
+  </ul>
+
+  <h2>6. Les cas particuliers : <em>was</em> et <em>wo</em></h2>
+
+  <h3>was — au lieu de das/die</h3>
+  <p>On utilise <strong>was</strong> à la place du pronom relatif habituel dans quelques situations précises :</p>
+  <ul class="warn-list">
+    <li>Après <em>etwas, nichts, alles, vieles</em> (quelque chose, rien, tout, beaucoup) : <em>Das ist alles, <strong>was</strong> ich weiß.</em> (C'est tout ce que je sais.)</li>
+    <li>Après un superlatif substantivé : <em>Das Beste, <strong>was</strong> ich je gegessen habe.</em> (La meilleure chose que j'aie jamais mangée.)</li>
+    <li>Quand l'antécédent est une phrase entière, pas un nom précis : <em>Er kam zu spät, <strong>was</strong> mich ärgerte.</em> (Il est arrivé en retard, ce qui m'a énervé.)</li>
+  </ul>
+
+  <h3>wo — pour un lieu (facultatif mais fréquent)</h3>
+  <p><strong>wo</strong> peut remplacer <em>in dem/in der</em> quand l'antécédent est un lieu, surtout à l'oral :</p>
+  <ul class="example-list">
+    <li>Die Stadt, <strong>wo</strong> ich wohne, ist klein.
+      <div class="fr">= <em>Die Stadt, in der ich wohne, ist klein.</em> (La ville où j'habite est petite.)</div>
+    </li>
+  </ul>
+  <p><strong>wo</strong> est aussi obligatoire avec les noms de villes et de pays sans article : <em>Berlin, <strong>wo</strong> ich studiert habe, ist schön.</em></p>
+
+  <h2>7. La méthode, étape par étape</h2>
+  <ol class="steps">
+    <li>Identifier le nom repris (l'antécédent) et son <strong>genre</strong> + <strong>nombre</strong>.</li>
+    <li>Construire mentalement la proposition relative comme une phrase à part, pour trouver le <strong>rôle du pronom</strong> dedans (sujet ? complément direct ? datif ? possession ? précédé d'une préposition ?).</li>
+    <li>En déduire le <strong>cas</strong>, et choisir la forme dans le tableau.</li>
+    <li>Construire la phrase avec des <strong>virgules</strong> et le verbe conjugué <strong>à la fin</strong> de la relative.</li>
+  </ol>
+
+  <div class="fix-box">
+    <p><span class="key">Exemple complet, étape par étape :</span> « Le livre que j'ai donné à mon frère est intéressant. »</p>
+    <p>1) Antécédent : <em>das Buch</em> → neutre singulier.<br>
+       2) Rôle du pronom : dans « j'ai donné LE LIVRE à mon frère », le livre est le complément direct → accusatif.<br>
+       3) Neutre + accusatif → <strong>das</strong>.<br>
+       4) <em>Das Buch, <span class="tag-akk">das</span> ich meinem Bruder gegeben habe, ist interessant.</em></p>
+  </div>
+
+  <h2>8. Erreurs fréquentes à éviter</h2>
+  <ul class="warn-list">
+    <li><strong>Oublier les virgules</strong> autour de la relative — elles sont obligatoires en allemand, même pour une relative courte.</li>
+    <li><strong>Laisser le verbe en 2ᵉ position</strong> au lieu de le renvoyer à la fin (erreur la plus commune, surtout dans une phrase longue).</li>
+    <li><strong>Accorder le pronom sur le mauvais nom</strong> dans une phrase avec plusieurs noms : toujours remonter au nom juste avant la virgule.</li>
+    <li><strong>Confondre le genre de l'antécédent avec celui du mot qui suit</strong> au génitif (<em>dessen/deren</em> s'accorde sur le possesseur, pas sur l'objet possédé).</li>
+    <li><strong>Oublier la préposition</strong> quand le verbe de la relative en a besoin (<em>warten auf</em>, <em>sprechen mit</em>...).</li>
+  </ul>
+
+  <footer>
+    Fiche de référence sur les propositions relatives — gardez-la sous la main pour les exercices qui suivent.
+  </footer>
+
+</div>
+</body>
+</html>
+
+</body></html>
